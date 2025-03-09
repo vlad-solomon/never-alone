@@ -35,7 +35,7 @@ client.on("voiceStateUpdate", (_, newState) => {
     if (userTimers.has(userId)) return;
 
     const timer = setTimeout(async () => {
-        const currentChannel = client.channels.cache.get(userData.channelId);
+        const currentChannel = client.channels.cache.get(newState.channelId);
         if (!currentChannel || currentChannel.members.size > 1) return;
 
         const guild = newState.guild;
